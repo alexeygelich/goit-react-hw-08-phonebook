@@ -1,0 +1,25 @@
+/* your css code */
+
+.ContainerWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  margin: 0 auto;
+}
+
+
+.logo {
+  font-size: 37px;
+  color: #0b1aa3;
+}
+
+.fade-logo-appear {
+  transform: translateX(-100%);
+}
+
+.fade-logo-appear-active {
+  transform: translateX(0);
+  transition: 500ms;
+}

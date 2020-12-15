@@ -1,0 +1,29 @@
+/* your css code */
+.item-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: 500ms ease-in;
+}
+
+.item-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.item-exit {
+  transform: translateX(0);
+  opacity: 1;
+  transition: 500ms ease-in;
+}
+
+.item-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 400px;
+}
