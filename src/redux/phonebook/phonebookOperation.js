@@ -1,7 +1,6 @@
 import axios from "axios";
 import phonebookActions from "./phonebookActions";
 
-
 const addContact = ({ name, number }) => (dispatch) => {
   dispatch(phonebookActions.addContactRequest());
 
@@ -11,8 +10,14 @@ const addContact = ({ name, number }) => (dispatch) => {
     .catch((error) => dispatch(phonebookActions.addContactError(error)));
 };
 
-const fetchContact = () => (dispatch) => {
+const fetchContact = () => (dispatch, getState) => {
   dispatch(phonebookActions.fetchContactsRequest());
+
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  axios.defaults.headers.common.Authorization = `Bearer ${persistedToken}`;
 
   axios
     .get("/contacts")

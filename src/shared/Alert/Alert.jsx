@@ -1,6 +1,8 @@
 import React from "react";
 import "./Alert.css";
 
-const Alert = ({ message }) => <div className="AlertWrapper">{message}</div>;
+const Alert = ({ message }) => {
+  return <div className="AlertWrapper">{message}</div>;
+};
 
 export default Alert;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Contacts from "./Contacts";
 import { connect } from "react-redux";
 import phonebookSelectors from "../redux/phonebook/phonebookSelectors";

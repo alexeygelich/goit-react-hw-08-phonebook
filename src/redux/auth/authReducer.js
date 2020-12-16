@@ -21,7 +21,12 @@ const token = createReducer("", {
   [authActions.logOutSuccess]: () => "",
 });
 
-const error = createReducer(initialUserState, {});
+const error = createReducer("", {
+  [authActions.registerRequest]: () => "",
+  [authActions.loginRequest]: () => "",
+  [authActions.registerError]: (_, { payload }) => payload.message,
+  [authActions.loginError]: (_, { payload }) => payload.message,
+});
 
 export default combineReducers({
   user,

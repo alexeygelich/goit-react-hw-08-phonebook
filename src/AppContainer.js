@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import phonebookSelectors from "./redux/phonebook/phonebookSelectors";
+import authSelectors from "./redux/auth/authSelectors";
 import phonbookOperation from "./redux/phonebook/phonebookOperation";
 import authOpetations from "./redux/auth/authOpetations";
 import App from "./App";
@@ -18,6 +19,7 @@ class AppContainer extends Component {
 
 const mapStateToProps = (state) => ({
   contacts: phonebookSelectors.getContacts(state),
+  error: authSelectors.getError(state),
 });
 
 const mapDispatchToProps = {

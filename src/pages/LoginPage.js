@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import authOpetations from "../redux/auth/authOpetations";
+import "./formik.css";
 
 const LoginPage = ({ login }) => {
   return (
@@ -13,7 +14,9 @@ const LoginPage = ({ login }) => {
         }}
       >
         <Form className="form">
+          <label>Email</label>
           <Field type="email" name="email" />
+          <label>Password</label>
           <Field type="password" name="password" />
           <button type="submit">Login</button>
         </Form>

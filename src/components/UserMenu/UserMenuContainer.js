@@ -19,6 +19,7 @@ class userMenuContainer extends Component {
 
 const mapStateToProps = (state) => ({
   email: authSelectors.getEmail(state),
+  isAuth: authSelectors.isAuth(state),
 });
 
 const mapDispatchToProps = {
