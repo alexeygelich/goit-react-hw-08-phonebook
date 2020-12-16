@@ -15,10 +15,10 @@ const user = createReducer(initialUserState, {
   [authActions.getCurrentUserSuccess]: getUser,
 });
 
-const token = createReducer(null, {
+const token = createReducer("", {
   [authActions.registerSuccess]: addToken,
   [authActions.loginSuccess]: addToken,
-  [authActions.logOutSuccess]: () => null,
+  [authActions.logOutSuccess]: () => "",
 });
 
 const error = createReducer(initialUserState, {});

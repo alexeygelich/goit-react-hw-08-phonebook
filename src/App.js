@@ -3,6 +3,8 @@ import Container from "./shared/Container";
 import "./App.css";
 import routers from "./routers";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import PrivatePage from "./components/PrivatePage";
+import PublicPage from "./components/PublicPage";
 
 export default function App({ contacts, onIncrement, counterValue }) {
   return (
@@ -10,9 +12,9 @@ export default function App({ contacts, onIncrement, counterValue }) {
       <Container>
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            {routers.map((route) => (
-              <Route key={route.path} {...route} />
-            ))}
+            {routers.map((route) =>
+              route.privat ? <PrivatePage key={route.path} {...route} /> : <PublicPage key={route.path} {...route} />
+            )}
           </Switch>
         </Suspense>
       </Container>

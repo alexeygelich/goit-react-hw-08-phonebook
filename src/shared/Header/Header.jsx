@@ -2,30 +2,25 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import UserMenu from "../../components/UserMenu/UserMenuContainer";
+import authSelectors from "../../redux/auth/authSelectors";
+import UserSign from "../../components/UserSign";
 
-const Header = (props) => (
+const Header = ({ isAuth }) => (
   <Container>
     <Row>
       <Col>
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/contacts">Contacts</NavLink>
-        <UserMenu />
-        {/* <Button variant="primary" onClick={() => props.history.push({ pathname: "/register" })}>
-          Register
-        </Button>
-        <Button variant="primary" onClick={() => props.history.push({ pathname: "/login" })}>
-          Login
-        </Button>
-        <Button variant="primary" onClick={() => props.history.push({ pathname: "/contacts" })}>
-          Contacts
-        </Button> */}
+        {isAuth && <NavLink to="/contacts">Contacts</NavLink>}
+        {isAuth ? <UserMenu /> : <UserSign />}
       </Col>
     </Row>
   </Container>
 );
 
-export default Header;
+const mapStateToProps = (state) => ({
+  isAuth: authSelectors.isAuth(state),
+});
+
+export default connect(mapStateToProps)(Header);

@@ -1,3 +1,5 @@
 const getEmail = (state) => state.auth.user.email;
 
-export default { getEmail };
+const isAuth = (state) => state.auth.token;
+
+export default { getEmail, isAuth };

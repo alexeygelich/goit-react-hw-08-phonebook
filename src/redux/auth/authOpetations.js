@@ -63,7 +63,6 @@ const getCurrentUser = () => (dispatch, getState) => {
   axios
     .get("users/current")
     .then(({ data }) => {
-      token.unset();
       dispatch(authActions.getCurrentUserSuccess(data));
     })
     .catch((error) => dispatch(authActions.getCurrentUserError(error)));
