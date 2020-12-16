@@ -1,12 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
 import phonebookReducer from "./phonebook/phonebookReducer";
 import authReducer from "./auth/authReducer";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
-const store = configureStore({
+const persistConfig = {
+  key: "auth",
+  storage,
+  whitelist: ["token"],
+};
+
+export const store = configureStore({
   reducer: {
     contacts: phonebookReducer,
-    auth: authReducer,
+    auth: persistReducer(persistConfig, authReducer),
   },
 });
 
-export default store;
+export const persistor = persistStore(store);

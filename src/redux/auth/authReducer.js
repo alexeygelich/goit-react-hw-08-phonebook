@@ -6,11 +6,13 @@ const initialUserState = { name: null, email: null };
 const createUser = (_, { payload }) => payload.user;
 const addToken = (_, { payload }) => payload.token;
 const logoutUser = () => initialUserState;
+const getUser = (_, { payload }) => payload;
 
 const user = createReducer(initialUserState, {
   [authActions.registerSuccess]: createUser,
   [authActions.loginSuccess]: createUser,
   [authActions.logOutSuccess]: logoutUser,
+  [authActions.getCurrentUserSuccess]: getUser,
 });
 
 const token = createReducer(null, {
