@@ -7,12 +7,13 @@ import PublicPage from "./components/PublicPage";
 import { CSSTransition } from "react-transition-group";
 import Header from "./shared/Header";
 import Alert from "./shared/Alert";
+import Loder from "./shared/Loader";
 
 export default function App({ contacts, onIncrement, counterValue, error }) {
   return (
     <BrowserRouter>
       <Header />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loder />}>
         <Switch>
           {routers.map((route) =>
             route.privat ? <PrivatePage key={route.path} {...route} /> : <PublicPage key={route.path} {...route} />
