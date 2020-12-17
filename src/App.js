@@ -21,7 +21,7 @@ export default function App({ contacts, onIncrement, counterValue, error }) {
           <Redirect path="/" to="/login" />
         </Switch>
       </Suspense>
-      <CSSTransition in={error} timeout={500} classNames="fade-error" unmountOnExit>
+      <CSSTransition in={error} timeout={1000} classNames="fade-error" unmountOnExit>
         <Alert message={"Oops, something went wrong!"} />
       </CSSTransition>
     </BrowserRouter>

@@ -28,14 +28,14 @@
 .fade-error-enter-active {
   transform: translateX(0);
   opacity: 1;
-  transition: 500ms;
+  transition: 1000ms;
 }
 
-.fade-error-enter-done {
+/* .fade-error-enter-done {
   opacity: 0;
   transform: translateX(100%);
-  transition: 500ms;
-}
+  transition: 1000ms;
+} */
 
 .fade-error-exit {
   opacity: 1;
@@ -45,14 +45,14 @@
 .fade-error-exit-active {
   opacity: 0;
   transform: translateX(100%);
-  transition: 500ms;
+  transition: 1000ms;
 }
 
-.fade-error-enter-done {
+/* .fade-error-enter-done {
   opacity: 0;
   transform: translateX(100%);
-  transition: 500ms;
-}
+  transition: 1000ms;
+} */
 
 /* ------- */
 .fade-filter-enter {

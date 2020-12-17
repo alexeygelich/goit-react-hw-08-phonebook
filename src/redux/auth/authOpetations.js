@@ -21,7 +21,12 @@ const register = (credentials) => (dispatch) => {
       token.set(data.token);
       dispatch(authActions.registerSuccess(data));
     })
-    .catch((error) => dispatch(authActions.registerError(error)));
+    .catch((error) => dispatch(authActions.registerError(error)))
+    .finally(() =>
+      setTimeout(() => {
+        dispatch(authActions.setErrorNull());
+      }, 1000)
+    );
 };
 
 const login = (credentials) => (dispatch) => {
@@ -33,7 +38,12 @@ const login = (credentials) => (dispatch) => {
       token.set(data.token);
       dispatch(authActions.loginSuccess(data));
     })
-    .catch((error) => dispatch(authActions.loginError(error)));
+    .catch((error) => dispatch(authActions.loginError(error)))
+    .finally(() =>
+      setTimeout(() => {
+        dispatch(authActions.setErrorNull());
+      }, 1000)
+    );
 };
 
 const logOut = (credentials) => (dispatch) => {
