@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
 import authSelectors from "../../redux/auth/authSelectors";
 import { Route, Redirect } from "react-router-dom";
