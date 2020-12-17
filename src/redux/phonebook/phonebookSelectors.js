@@ -12,6 +12,7 @@ const getContactById = createSelector([(_, taskId) => taskId, getContacts], (id,
   contacts.find((contact) => contact.id === id)
 );
 
+
 export default {
   getContacts,
   getFilter,

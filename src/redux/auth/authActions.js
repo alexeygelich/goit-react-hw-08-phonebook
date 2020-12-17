@@ -16,6 +16,8 @@ const getCurrentUserRequest = createAction("auth/getCurrentUserRequest");
 const getCurrentUserSuccess = createAction("auth/getCurrentUserSuccess");
 const getCurrentUserError = createAction("auth/getCurrentUserError");
 
+const clearUserToken = createAction("auth/clearUserToken");
+
 const setErrorNull = createAction("error/setErrorNull");
 
 export default {
@@ -32,4 +34,5 @@ export default {
   logOutSuccess,
   logOutError,
   setErrorNull,
+  clearUserToken
 };

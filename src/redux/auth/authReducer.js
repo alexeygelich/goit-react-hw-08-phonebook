@@ -19,6 +19,7 @@ const token = createReducer("", {
   [authActions.registerSuccess]: addToken,
   [authActions.loginSuccess]: addToken,
   [authActions.logOutSuccess]: () => "",
+  [authActions.clearUserToken]: () => "",
 });
 
 const error = createReducer("", {

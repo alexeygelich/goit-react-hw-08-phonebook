@@ -1,5 +1,6 @@
 import axios from "axios";
 import phonebookActions from "./phonebookActions";
+import authActions from "../auth/authActions";
 
 const addContact = ({ name, number }) => (dispatch) => {
   dispatch(phonebookActions.addContactRequest());
@@ -22,7 +23,10 @@ const fetchContact = () => (dispatch, getState) => {
   axios
     .get("/contacts")
     .then(({ data }) => dispatch(phonebookActions.fetchContactsSuccess(data)))
-    .catch((error) => dispatch(phonebookActions.fetchContactsError(error)));
+    .catch((error) => {
+      dispatch(authActions.clearUserToken());
+      return dispatch(phonebookActions.fetchContactsError(error));
+    });
 };
 
 const removeContact = (id) => (dispatch) => {

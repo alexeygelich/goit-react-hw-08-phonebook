@@ -4,17 +4,17 @@ import { connect } from "react-redux";
 import authSelectors from "../../redux/auth/authSelectors";
 import { Route, Redirect } from "react-router-dom";
 
-const PrivatePage = ({ component: Component, isAuthenticated, ...routeProps }) => (
+const PrivatePage = ({ component: Component, isAuth, ...routeProps }) => (
   <Route
     {...routeProps}
     render={(props) => {
-      return isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />;
+      return isAuth ? <Component {...props} /> : <Redirect to="/login" />;
     }}
   />
 );
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: authSelectors.isAuth(state),
+  isAuth: authSelectors.isAuth(state),
 });
 
 export default connect(mapStateToProps)(PrivatePage);
